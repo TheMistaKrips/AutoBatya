@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbzoHOFPnCHmzQWnzGDvztXxIIUbQDKSDkz4pAaYzF01oN4cndJTvGehOxYZz96Qfj8z/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbxpR1SF05nJZ4X5brt-RHa6cwRO0Xy_uTHgW6EhasDb7juZ90FNrKDrtw0Qi7sCRgC5/exec";
 
 const fetchWithRetry = async (url, options = {}, retries = 3) => {
     for (let i = 0; i < retries; i++) {
@@ -12,7 +12,8 @@ const fetchWithRetry = async (url, options = {}, retries = 3) => {
             if (response.ok) {
                 try {
                     return await response.json();
-                } catch {
+                    // eslint-disable-next-line no-unused-vars
+                } catch (e) {
                     return { status: 'success' };
                 }
             }
@@ -31,7 +32,7 @@ export const fetchEmployees = async () => {
         url.searchParams.append('cacheBuster', Date.now());
 
         const result = await fetchWithRetry(url.toString());
-        return result.data || [];
+        return result?.data || [];
     } catch (error) {
         console.error("Error fetching employees:", error);
         return [];
@@ -44,9 +45,9 @@ export const addEmployeeToSheet = async (employee) => {
         url.searchParams.append('action', 'addEmployee');
 
         const formData = new FormData();
-        formData.append('name', employee.name);
-        formData.append('salary', employee.salary);
-        formData.append('position', employee.position);
+        formData.append('name', employee.name || '');
+        formData.append('salary', employee.salary || '');
+        formData.append('position', employee.position || '');
 
         await fetchWithRetry(url.toString(), {
             method: 'POST',
@@ -67,7 +68,7 @@ export const fetchFinanceData = async () => {
         url.searchParams.append('cacheBuster', Date.now());
 
         const result = await fetchWithRetry(url.toString());
-        return result.data || {
+        return result?.data || {
             income: 0,
             expenses: 0,
             profit: 0,
@@ -90,10 +91,10 @@ export const addFinanceRecord = async (record) => {
         url.searchParams.append('action', 'addFinanceRecord');
 
         const formData = new FormData();
-        formData.append('type', record.type);
-        formData.append('amount', record.amount);
-        formData.append('description', record.description);
-        formData.append('date', record.date);
+        formData.append('type', record.type || '');
+        formData.append('amount', record.amount || '');
+        formData.append('description', record.description || '');
+        formData.append('date', record.date || new Date().toISOString().split("T")[0]);
 
         await fetchWithRetry(url.toString(), {
             method: 'POST',

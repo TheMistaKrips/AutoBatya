@@ -1,0 +1,177 @@
+/* Finance Dashboard */
+.finance-section {
+    margin-bottom: 2rem;
+}
+
+.finance-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.finance-card {
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: white;
+}
+
+.finance-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.finance-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.finance-card.income {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.finance-card.expenses {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.finance-card.profit {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+/* Employee Table */
+.table-container {
+    overflow-x: auto;
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.employee-table th,
+.employee-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.employee-table th {
+    background-color: #f5f7fa;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.employee-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.empty-table {
+    padding: 2rem;
+    text-align: center;
+    color: var(--gray);
+}
+
+/* Modal */
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    outline: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+    color: var(--primary);
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--gray);
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--dark);
+}
+
+.form-group input {
+    padding: 0.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.submit-button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.submit-button:hover {
+    background-color: var(--secondary);
+}
+
+.cancel-button {
+    background-color: white;
+    color: var(--gray);
+    border: 1px solid #e0e0e0;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.cancel-button:hover {
+    background-color: #f5f5f5;
+}

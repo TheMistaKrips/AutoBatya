@@ -1,0 +1,228 @@
+/* Windows 11 стиль */
+:root {
+  --primary: #0078d4;
+  --secondary: #106ebe;
+  --success: #107c10;
+  --danger: #d13438;
+  --warning: #f2c811;
+  --light: #f3f2f1;
+  --dark: #323130;
+  --gray: #8a8886;
+  --surface: #ffffff;
+  --card-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108);
+}
+
+body {
+  background-color: #faf9f8;
+  color: var(--dark);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-header {
+  margin-bottom: 28px;
+}
+
+.app-header h1 {
+  color: var(--primary);
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.app-subtitle {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.app-content {
+  background: var(--surface);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  padding: 24px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-header h2 {
+  color: var(--dark);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Кнопки в стиле Windows 11 */
+.add-button,
+.income-button,
+.expense-button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  height: 32px;
+}
+
+.add-button:hover,
+.income-button:hover {
+  background-color: var(--secondary);
+}
+
+.expense-button {
+  background-color: var(--danger);
+  margin-left: 8px;
+}
+
+.expense-button:hover {
+  background-color: #a4262c;
+}
+
+/* Финансовые карточки */
+.finance-cards {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.finance-card {
+  flex: 1;
+  padding: 16px;
+  border-radius: 4px;
+  background: var(--surface);
+  box-shadow: var(--card-shadow);
+}
+
+.finance-card h3 {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+
+.finance-card p {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.finance-card.income p {
+  color: var(--success);
+}
+
+.finance-card.expenses p {
+  color: var(--danger);
+}
+
+/* Модальные окна */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--surface);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 440px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  outline: none;
+  padding: 24px;
+}
+
+.modal-header {
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.form-group input {
+  padding: 8px 12px;
+  border: 1px solid #edebe9;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 32px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.submit-button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 32px;
+  min-width: 96px;
+}
+
+.cancel-button {
+  background: none;
+  border: 1px solid #edebe9;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 32px;
+  min-width: 96px;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  animation: fadeIn 0.3s ease-out;
+}

@@ -1,0 +1,225 @@
+:root {
+    --primary: #0b5ed7;
+    --secondary: #0a58ca;
+    --danger: #dc3545;
+    --success: #198754;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --gray: #6c757d;
+    --surface: #ffffff;
+    --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+}
+
+/* Global Reset */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: #f1f3f5;
+    color: var(--dark);
+}
+
+/* Layout */
+.app-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1.5rem;
+}
+
+.app-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+    color: var(--primary);
+}
+
+.app-subtitle {
+    font-size: 1rem;
+    color: var(--gray);
+}
+
+.app-content {
+    background-color: var(--surface);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* Section header */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+    font-size: 1.3rem;
+}
+
+/* Buttons */
+button,
+.add-button,
+.income-button,
+.expense-button,
+.submit-button,
+.cancel-button {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-button,
+.income-button {
+    background-color: var(--primary);
+    color: white;
+}
+
+.add-button:hover,
+.income-button:hover {
+    background-color: var(--secondary);
+}
+
+.expense-button {
+    background-color: var(--danger);
+    color: white;
+    margin-left: 0.5rem;
+}
+
+.expense-button:hover {
+    background-color: #bb2d3b;
+}
+
+/* Cards */
+.finance-cards {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin-bottom: 2rem;
+}
+
+.finance-card {
+    background-color: var(--light);
+    padding: 1.2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.finance-card h3 {
+    font-size: 1rem;
+    color: var(--gray);
+    margin-bottom: 0.5rem;
+}
+
+.finance-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Table */
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.employee-table th,
+.employee-table td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.employee-table th {
+    background-color: #e9ecef;
+    color: var(--dark);
+}
+
+.employee-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Modal */
+.modal {
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--radius);
+    max-width: 500px;
+    margin: auto;
+    outline: none;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: var(--radius);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+/* Loader */
+.app-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
+    color: var(--gray);
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 6px solid #ccc;
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .app-header h1 {
+        font-size: 1.5rem;
+    }
+}
